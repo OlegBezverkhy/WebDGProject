@@ -1,0 +1,79 @@
+<!-- test.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+    <div class="container text-center">
+        <h1>Тест: Насколько хорошо вы знаете немецких овчарок?</h1>
+        <p>Проверьте свои знания об этой удивительной породе собак, ответив на несколько вопросов.</p>
+
+        <form id="quiz-form">
+            <!-- Вопрос 1 -->
+            <div class="form-group">
+                <label for="question1"><strong>1. Какова средняя продолжительность жизни немецкой овчарки?</strong></label>
+                <select id="question1" class="form-control">
+                    <option value="">Выберите ответ</option>
+                    <option value="1">5-7 лет</option>
+                    <option value="2">9-13 лет</option>
+                    <option value="3">15-18 лет</option>
+                </select>
+            </div>
+
+            <!-- Вопрос 2 -->
+            <div class="form-group">
+                <label for="question2"><strong>2. Откуда происходит порода немецкая овчарка?</strong></label>
+                <select id="question2" class="form-control">
+                    <option value="">Выберите ответ</option>
+                    <option value="1">Австрия</option>
+                    <option value="2">Швейцария</option>
+                    <option value="3">Германия</option>
+                </select>
+            </div>
+
+            <!-- Вопрос 3 -->
+            <div class="form-group">
+                <label for="question3"><strong>3. Какой тип характера присущ немецким овчаркам?</strong></label>
+                <select id="question3" class="form-control">
+                    <option value="">Выберите ответ</option>
+                    <option value="1">Агрессивный и непослушный</option>
+                    <option value="2">Умный, послушный и преданный</option>
+                    <option value="3">Ленивый и равнодушный</option>
+                </select>
+            </div>
+
+            <!-- Вопрос 4 -->
+            <div class="form-group">
+                <label for="question4"><strong>4. Какие задачи чаще всего выполняют немецкие овчарки?</strong></label>
+                <select id="question4" class="form-control">
+                    <option value="">Выберите ответ</option>
+                    <option value="1">Работа на фермах</option>
+                    <option value="2">Служба в полиции и армии</option>
+                    <option value="3">Охота на диких животных</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Проверить ответы</button>
+        </form>
+
+        <div id="result" class="mt-4"></div>
+    </div>
+
+    <script>
+        document.getElementById('quiz-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const correctAnswers = ['2', '3', '2', '2'];
+            let score = 0;
+            const questions = ['question1', 'question2', 'question3', 'question4'];
+
+            questions.forEach((question, index) => {
+                const answer = document.getElementById(question).value;
+                if (answer === correctAnswers[index]) {
+                    score++;
+                }
+            });
+
+            document.getElementById('result').innerHTML = `<h4>Вы ответили правильно на ${score} из 4 вопросов!</h4>`;
+        });
+    </script>
+{% endblock %}

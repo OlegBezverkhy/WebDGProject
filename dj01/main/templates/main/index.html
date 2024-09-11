@@ -1,0 +1,13 @@
+<!-- index.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Добро пожаловать на главную страницу!</h1>
+        <p class="lead">Этот сайт посвящен немецким овчаркам - преданейшим и умнейшим друзьям человека.</p>
+        <img src="{% static 'img/photo1.jpg' %}" class="img-fluid rounded" alt="Главная страница">
+    </div>
+{% endblock %}

@@ -2,12 +2,28 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'index.html')
+    data = {
+        'title': 'Главная страница о нас'
+    }
+    return render(request, 'main/index.html', data)
 
 
 def data(request):
-    return render(request, 'data.html')
+    data = {
+        'title': 'Немножко информации о немецких овчарках'
+    }
+    return render(request, 'main/data.html', data)
 
 
 def test(request):
-    return render(request, 'test.html')
+    data = {
+        'title': 'Проверим Ваши знания о породе'
+    }
+    return render(request, 'main/test.html', data)
+
+
+def about_page(request):
+    data = {
+        'title': 'Немножко информации обо мне любимом'
+    }
+    return render(request, 'main/about.html', data)
